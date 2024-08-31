@@ -1,7 +1,7 @@
 <table align="center"><tr>
   <td>
 <p align="center">
-<img src="https://github.com/codr07/arcade-point-cal/blob/main/static/images/prev.jpg" width="100px"><br>
+<img src="https://github.com/codr07/arcade-point-cal/blob/main/static/images/prev.jpg" width="500px"><br>
   Arcade Hub
 <p>
  </td>
@@ -10,7 +10,7 @@
 <h1 align="center">Google Arcade Hub</h1>
 <h3 align="center">Google Cloud Arcade Unofficial Site</h3>
 <p align="center">
-<img src="https://github.com/codr07/arcade-point-cal/blob/main/static/images/cal.png" width="100px"><br>
+<img src="https://github.com/codr07/arcade-point-cal/blob/main/static/images/cal.png" width="400px"><br>
   Arcade Point Calculator
 <p>
 <h3 align="center">Get a custom made Arcade Point Calculator</h3>
