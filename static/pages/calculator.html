@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYHWN08S06"></script>
+        <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-QYHWN08S06")</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Google Arcade Points Calculator</title>
+        <link rel="canonical" href="https://arcade.codingroom.in/">
+        <meta name="description" content="Google Cloud Arcade Points Calculator to effortlessly calculate your Google Cloud skills points, track your progress with our google arcade points calculator.">
+        <meta name="keywords" content="Google Cloud, Google Cloud Point Calculator, google skills point calculator, cloud certification, track progress, learning optimization, google Arcade Points Calculator, google cloud arcade, cloud arcade events, qwiklabs">
+        <meta property="og:title" content="Google Cloud Skills Point Calculator - Coding Room">
+        <meta property="og:description" content="Google Cloud Arcade Points Calculator to effortlessly calculate your Google Cloud skills points, track your progress with our google arcade points calculator.">
+        <meta property="og:image" content="https://arcade.codingroom.instatic/images/arcade.png">
+        <meta property="og:url" content="https://arcade.codingroom.in/">
+        <meta property="og:type" content="website">
+        <meta name="twitter:title" content="Google Cloud Skills Point Calculator - Coding Room">
+        <meta name="twitter:description" content="Google Cloud Arcade Points Calculator to effortlessly calculate your Google Cloud skills points, track your progress with our google arcade points calculator.">
+        <meta name="twitter:image" content="https://arcade.codingroom.instatic/images/arcade.png">
+        <meta name="twitter:url" content="https://arcade.codingroom.in/">
+        <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+        <link rel="apple-touch-icon" type="image/x-icon" href="static/images/favicon.ico">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link href="static/css/cal-style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script type="application/ld+json">{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Google Arcade Point Calculator",
+            "url": "https://arcade.codingroom.in/",
+            "description": "Google Cloud Arcade Points Calculator to effortlessly calculate your Google Cloud skills points, track your progress with our google arcade points calculator.",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://arcade.codingroom.in?url={url}",
+                "query-input": "required name=url"
+            }
+        }</script>
+    </head>
+    <body>
+
+        <div class="nav">
+            <button class="back-btn" style="background-color:rgba(0, 0, 0, 0.342); border: 1px solid transparent; color: aliceblue; border-radius: 15px; padding: 0.2rem; margin-left: 5px;margin-top: 3px;" onclick="goBack()"><i class='bx bx-left-arrow-alt'></i> Back</button>
+        </div>
+
+        <div class="wrapper">
+            <div class="container mt-5 mb-5">
+                <div class="content">
+                    <div class="header">
+                        <div class="title">
+                            <p>Google Cloud</p>
+                            <h1 class="mt-3">Arcade Points Calculator</h1>
+                        </div>
+                        <div class="rockets">
+                            <span></span> <span></span> <span></span> <span></span> <span></span>
+                        </div>
+                    </div>
+                    <div class="form-div">
+                        <form id="scrapeForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="profile_url" name="url" placeholder="Enter public profile URL" autofocus required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-right:10px"><i class="bi bi-search"></i> Search</button>
+                            <a class="ref" href="https://www.cloudskillsboost.google/profile/paths" rel="noreferrer" target="_blank">Find your public URL</a>
+                        </form>
+                        <div id="loader" class="loader mt-4"></div>
+                        <div id="profileSection" class="row mt-5" style="display:none">
+                            <div class="col-md-12">
+                                <h3 class="info-alert"><i class="bi bi-info-circle"></i> The content below is for the <b>Google Arcade Facilitator Program 2024</b> (July - December).</h3>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="profile">
+                                    <img class="avatar" id="avatar" src="" width="160" height="160" alt="Avatar">
+                                    <h2 id="userName">Google Cloud Arcade Facilitator</h2>
+                                    <p id="league_avatar" style="display:none"></p>
+                                    <p id="leagueType" style="display:none"></p>
+                                    <p><span id="points" style="display:none"></span></p>
+                                </div>
+                                <div class="profile chart" style="height:400px">
+                                    <canvas id="chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="arcade-points">
+                                    <div id="Admin" class="card">
+                                        <div class="card-header d-flex justify-content-between align-items-center text-center">
+                                            <h4 class="mb-0">Arcade Points: <span id="totalPoints">0</span></h4>
+                                            <div class="btn p-0" data-toggle="collapse" data-target="#disclaimer" aria-expanded="true" aria-controls="disclaimer">
+                                                <i class="bi bi-info-circle text-white" style="font-size:2em"></i>
+                                            </div>
+                                        </div>
+                                        <div id="disclaimer" class="collapse card-body">
+                                            <strong>Note:</strong> If you notice that the point calculator displays any incorrect information, <a class="ref text-white" href="https://linkedin.com/in/thebadalkumar/" target="_blank" rel="noreferrer">connect with me</a> directly to resolve the issue. Your feedback is essential to ensure the accuracy of the calculations.</div>
+                                        </div>
+                                    </div>
+                                    <div class="card swag-ms mt-3">
+                                        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                                            <p>Swag Milestones</p>
+                                            <p class="swag-info-ms" data-toggle="collapse" data-target="#swagmilestoneinfo" aria-expanded="true" aria-controls="swagmilestoneinfo"><i class="bi bi-info-circle text-white" style="font-size:1.5em"></i></p>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="swagmilestoneinfo" class="collapse text-center">
+                                                <strong>Note:</strong> Added this feature as per <a class="ref" href="https://www.googlecloudcommunity.com/gc/Learning-Forums/Arcade-2024-Season-2-Milestones/m-p/797031" target="_blank" rel="noreferrer" area-label="Google Cloud Community">this</a> information.
+                                            </div>
+                                            <svg viewBox="0 0 450 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                                                <line id="line1" x1="20%" y1="40%" x2="40%" y2="40%" stroke="#ccc" stroke-width="4"></line>
+                                                <line id="line2" x1="40%" y1="40%" x2="60%" y2="40%" stroke="#ccc" stroke-width="4"></line>
+                                                <line id="line3" x1="60%" y1="40%" x2="80%" y2="40%" stroke="#ccc" stroke-width="4"></line>
+                                                <circle id="milestone1" cx="20%" cy="40%" r="15" fill="#ccc" class="glow"></circle>
+                                                <circle id="milestone2" cx="40%" cy="40%" r="15" fill="#ccc" class="glow"></circle>
+                                                <circle id="milestone3" cx="60%" cy="40%" r="15" fill="#ccc" class="glow"></circle>
+                                                <circle id="milestone4" cx="80%" cy="40%" r="15" fill="#ccc" class="glow"></circle>
+                                                <text x="20%" y="40%" class="node-text">15</text>
+                                                <text x="40%" y="40%" class="node-text">30</text>
+                                                <text x="60%" y="40%" class="node-text">45</text>
+                                                <text x="80%" y="40%" class="node-text">65</text>
+                                                <text x="20%" y="90%" font-size="16" fill="#000" text-anchor="middle">Standard</text>
+                                                <text x="40%" y="90%" font-size="16" fill="#000" text-anchor="middle">Advanced</text>
+                                                <text x="60%" y="90%" font-size="16" fill="#000" text-anchor="middle">Premium</text>
+                                                <text x="80%" y="90%" font-size="16" fill="#000" text-anchor="middle">Premium+</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive mt-3">
+                                        <table class="table table-bordered table-striped" style="font-size:.8em">
+                                            <thead class="thead-dark"><tr>
+                                                <th scope="col">Milestone</th>
+                                                <th>Status</th>
+                                                <th class="text-center">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="standard" class="milestone-row standard">
+                                                <td class="font-weight-bold">Standard</td>
+                                                <td class="percentage">
+                                                    <div class="badge-wrapper-milestone"><span class="badge-milestone font-weight-bold"></span></div>Arcade <span class="arcade">0/2</span> | Trivia <span class="trivia">0/2</span> | Skill Badge <span class="skill">0/8</span>
+                                                </td>
+                                                <td class="text-center"><span class="t_value"></span>/12
+                                                </td>
+                                            </tr>
+                                            <tr id="advanced" class="milestone-row advanced">
+                                                <td class="font-weight-bold">Advanced</td>
+                                                <td class="percentage">
+                                                    <div class="badge-wrapper-milestone"><span class="badge-milestone font-weight-bold"></span></div>Arcade <span class="arcade">0/3</span> | Trivia <span class="trivia">0/4</span> | Skill Badge <span class="skill">0/18</span>
+                                                </td>
+                                                <td class="text-center"><span class="t_value"></span>/25
+                                                </td>
+                                            </tr>
+                                            <tr id="premium" class="milestone-row premium">
+                                                <td class="font-weight-bold">Premium</td>
+                                                <td class="percentage">
+                                                    <div class="badge-wrapper-milestone"><span class="badge-milestone font-weight-bold"></span></div>Arcade <span class="arcade">0/5</span> | Trivia <span class="trivia">0/6</span> | Skill Badge <span class="skill">0/28</span>
+                                                </td>
+                                                <td class="text-center"><span class="t_value"></span>/39</td>
+                                            </tr>
+                                            <tr id="premium-plus" class="milestone-row premium-plus">
+                                                <td class="font-weight-bold">Premium+</td>
+                                                <td class="percentage">
+                                                    <div class="badge-wrapper-milestone"><span class="badge-milestone font-weight-bold"></span></div>Arcade <span class="arcade">0/6</span> | Trivia <span class="trivia">0/8</span> | Skill Badge <span class="skill">0/42</span>
+                                                </td>
+                                                <td class="text-center"><span class="t_value"></span>/56</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="from-admin">
+                                    <div id="disclaimerCardAdmin" class="card">
+                                        <div class="card-header d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#disclaimer-admin" aria-expanded="true" aria-controls="disclaimer-admin" style="cursor:pointer">
+                                            <h5 class="mb-0">Explore Unique Projects Created Just for You! ✨</h5>
+                                            <div class="btn p-0"><i class="bi bi-chevron-double-down" style="font-size:2em"></i></div>
+                                        </div>
+                                        <div id="disclaimer-admin" class="collapse card-body">
+                                            <h6>Live Projects Challenge Starting on 31<sup>st</sup> August</h6><br><h6>Don't miss out—subscribe to my YouTube channel for updates!<br> <a href="https://www.youtube.com/@thebadalkumar" target="_blank" rel="noreferrer">@thebadalkumar</a> & <a href="https://www.youtube.com/@codr_academy" target="_blank" rel="noreferrer">@codr_academy</a> </h6>
+                                            <hr>
+                                            <h4 class="text-center">List of Projects 👇🖥️👨‍💻</h4>
+                                            <table class="table table-bordered table-striped mt-4">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>S. No.</th>
+                                                        <th>Project Name</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Live Code Editor</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Files Adda</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Web Scraping Project</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Assignment Adda</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>Server Monitoring</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>GeoJson Project</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>Object Locator In Store</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>SSH Web Terminal</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>Web Monitoring</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>Own Email System</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>Authentication System</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>SSL Checker</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>13</td>
+                                                        <td>Real Time Alerts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>Telegram Bot</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td>Real-time Charts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>User Tracker without API</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>Web FTP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>Live Streaming Project</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td>Network Discovery</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>20</td>
+                                                        <td>User Management</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>Mouse / Keyboard Control</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>22</td>
+                                                        <td>Blog Project</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>23</td>
+                                                        <td>Real-time Network Topology</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td>Auto Data Backup to Other Device</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>25</td>
+                                                        <td>Ping Dashboard</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>26</td>
+                                                        <td>System Dashboard</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>27</td>
+                                                        <td>Ticketing System</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>API Creation / Integration</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>29</td>
+                                                        <td>Image Editor</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>30</td>
+                                                        <td>Extract Data From PDF</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p class="text-center mt-4">All projects are made by me from scratch 💫 share with your friends and groups ✨</p>
+                                            <h6 class="mt-4">Tech Stack:</h6>
+                                            <ul>
+                                                <li>HTML, CSS, JavaScript, BOOTSTRAP, PYTHON, DJANGO, FLASK, GIT, REACT, etc.</li>
+                                            </ul>
+                                            <p class="text-center mt-4">For latest update join my <a href="https://chat.whatsapp.com/GSe9o1qcMlpJHvp9NyWmg7" target="_blank" rel="noreferrer">Whatsapp Channel</a> and Subscribe my <a href="https://www.youtube.com/@thebadalkumar" target="_blank" rel="noreferrer">Youtube Channel (Code With Badal)</a> & of my co-worker <a href="https://www.youtube.com/@codr_academy" target="_blank" rel="noreferrer">Youtube Channel (CODR Academy)</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-bordered table-striped-custom">
+                                        <thead class="thead-dark"><tr>
+                                            <th scope="col">Type</th>
+                                            <th scope="col" class="text-center">Completed</th>
+                                            <th scope="col" class="text-center">Points</th>
+                                            <th scope="col" class="text-center">Info</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-striped-row">
+                                            <td>Skill Badges</td>
+                                            <td id="skill-total" class="text-center">0</td>
+                                            <td id="skill-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#skillDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="skillDetails">
+                                            <td colspan="4">
+                                                <div>For every <b>2 "Skill Badge"</b> completions, you will be awarded with <b>1 Arcade Point</b>. Eg: If you complete 4 skill badges, you will receive 2 points & so on.</div>
+                                                <div class="mt-2">If you have completed a Skill Badge <b>before 1<sup>st</sup> August</b> i.e <b>Skill Badge Monsoon Challenge</b>, you will be awarded with <b>1 Arcade Point</b> for 1 Skill Badge completion.</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Completion Badges</td>
+                                            <td id="compl-total" class="text-center">0</td>
+                                            <td id="compl-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#compDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="compDetails">
+                                            <td colspan="4">You will be awarded with <b>5 points</b> if you complete the <b>Cloud Digital Leader Learning Path</b> between 1<sup>st</sup> August and 5<sup>th</sup> August!<br><br><b>Please note:-</b>It will not added into your milestone.</td>
+                                        </tr>
+                                        <tr class="table-striped-row">
+                                            <td>Arcade Games</td>
+                                            <td id="arcade-total" class="text-center">0</td>
+                                            <td id="game-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#arcadeDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="arcadeDetails">
+                                            <td colspan="4">For each <b>"Game"</b> badge you complete, you will be awarded with <b>1 Arcade point</b>. Eg: If you complete 2 game badges, you will receive 2 points & so on.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Certification Zone</td>
+                                            <td id="arcade-cert-total" class="text-center">0</td>
+                                            <td id="game-cert-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#arcadeCertDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="arcadeCertDetails">
+                                            <td colspan="4">Google Cloud Certifications provide a tangible way for you to demonstrate your skills. You will be awarded with <b>1 Point</b> for completion.<br><br><b>Please note:-</b>It will not added into your milestone.</td>
+                                        </tr>
+                                        <tr class="table-striped-row">
+                                            <td>Trivia Games</td>
+                                            <td id="trivia-total" class="text-center">0</td>
+                                            <td id="trivia-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#triviaDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="triviaDetails">
+                                            <td colspan="4">For each <b>"Trivia"</b> badge you complete, you will be awarded with <b>1 Arcade Point</b>. Eg: If you complete 2 trivia badges, you will receive 2 points.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Arcade Athon</td>
+                                            <td id="arcade-athon-total" class="text-center">0</td>
+                                            <td id="game-athon-badge" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#arcadeathonDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="arcadeathonDetails">
+                                            <td colspan="4">Start your run in the Arcade-athon and earn an exclusive Google Cloud Credential by gaining hands-on experience with Google Cloud's powerful tools and techniques that are transforming your favorite sports! You will be awarded with <b>2 Points</b> for completion.<br><br><b>Please note:-</b>It will not added into your milestone.</td>
+                                        </tr>
+                                        <tr class="table-striped-row">
+                                            <td>Bonus Point</td>
+                                            <td class="text-center milestone"></td>
+                                            <td id="bonus" class="text-center">0</td>
+                                            <td class="text-center" data-toggle="collapse" data-target="#bonusDetails"><i class="bi bi-info-circle"></i></td>
+                                        </tr>
+                                        <tr class="collapse" id="bonusDetails">
+                                            <td colspan="4">
+                                                <div>Complete <b>2 Arcade Games</b>, <b>2 Trivia Games</b> & <b>8 Skill Badges</b>: <span class="bonuspts">+2 Bonus Points</span></div>
+                                                <div class="mt-2">Complete <b>3 Arcade Games</b>, <b>4 Trivia Games</b> & <b>18 Skill Badges</b>: <span class="bonuspts">+9 Bonus Points</span></div>
+                                                <div class="mt-2">Complete <b>5 Arcade Games</b>, <b>6 Trivia Games</b> & <b>28 Skill Badges</b>: <span class="bonuspts">+15 Bonus Points</span></div>
+                                                <div class="mt-2">Complete <b>6 Arcade Games</b>, <b>8 Trivia Games</b> & <b>42 Skill Badges</b>: <span class="bonuspts">+25 Bonus Points</span></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="whatsapp-card">
+                                <a href="https://chat.whatsapp.com/GSe9o1qcMlpJHvp9NyWmg7" target="_blank" rel="noreferrer">
+                                    <div class="card">
+                                        <div class="card-header d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">Join My WhatsApp Channel for Realtime Projects</h6>
+                                            <div class="btn p-0"><i class="bi bi-whatsapp" style="color:#fff;font-size:2.5em"></i></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="table-responsive mt-3">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Date (EDT)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="badgeResults"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="disclaimer mt-4"><strong>Disclaimer:</strong> This website is an unofficial tool for calculating points and is provided for informational purposes only. Please refer to the <a class="ref" href="https://go.cloudskillsboost.google/arcade" target="_blank" rel="noreferrer">official guidelines</a> for accurate information.</div>
+                        </div>
+                    </div>
+                    <div id="error-message" class="error-message mt-5" style="display:none">No data found.<div class="whatsapp-card"><a href="https://chat.whatsapp.com/GSe9o1qcMlpJHvp9NyWmg7" target="_blank" rel="noreferrer"><div class="card"><div class="card-header d-flex justify-content-between align-items-center"><h6 class="mb-0">Join My WhatsApp Channel for Realtime Projects</h6><div class="btn p-0"><i class="bi bi-whatsapp" style="color:#fff;font-size:2.5em"></i></div></div></div></a></div></div></div>
+                </div>
+            </div>
+        </div>
+        <footer><div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-2 mb-md-0 text-md-left"><span>&copy; 2024 <a href="https://codingroom.in/" target="_blank" rel="noreferrer">codingroom.in</a></span></div>
+                <div class="col-md-4 mb-2 mb-md-0 text-md-center"><span>Developed By <a href="https://linkedin.com/in/thebadalkumar/" target="_blank" rel="noreferrer">Badal Kumar</a> & <a href="https://linkedin.com/in/sankhasaha/" target="_blank" rel="noreferrer">Sankha Saha</a></span></div>
+                <div class="col-md-4 mb-2 mb-md-0 text-md-right visitors"><a href="https://arcade-api.codingroom.in/stats/" target="_blank" rel="noreferrer">Visitor Stats</a></div></div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="static/js/cal-script.js"></script>
+        <script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
+    </body>
+    </html>
