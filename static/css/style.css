@@ -597,6 +597,37 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.btn-coming:hover {
+  box-shadow: 0 0 5px 0 #FF10F0 inset, 0 0 10px 1px #FF10F0;
+  color: #fff;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-coming:hover {
+  background-color: #f94db4;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  p{
+    color: #f2f2f2;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+}
+
+.btn-coming{
+  text-decoration: none;
+  background-color: #FF82CE;
+  font-family: "Press Start 2P";
+  font-size: medium;
+  color: #1B1C24;
+  border: none;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding: 20 20 20 20;
+  cursor: pointer;
+  height: 40px;
+  width: 230px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 .trivia-weeks button p{
   font-family: "Press Start 2P", system-ui;
   font-size: 15px;
@@ -631,7 +662,7 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
 
 
 .community-section{
-  background-image: url('/static/images/Finaltry-this.png');
+  background-image: url('https://arcadehub.netlify.app/static/images/Finaltry-this.png');
    
   height: auto;
 }
@@ -1080,6 +1111,10 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
     width: 400px;
     height: 300px;
   }
+
+  .btn-coming{
+    width: 180px;
+  }
   .footer-list{
     overflow: hidden;
     
@@ -1246,6 +1281,15 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
   }
 
   .trivia-weeks a .btn{
+    height: 35px;
+  }
+
+  .trivia-weeks .btn-coming p{
+    font-size: 10px;
+  }
+
+  .btn-coming{
+    width: 120px;
     height: 35px;
   }
 
@@ -1446,6 +1490,11 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
     font-size: 10px;
   }
 
+  .trivia-weeks{
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .trivia-weeks img{
     width: 85px;
   }
@@ -1473,6 +1522,14 @@ box-shadow: 1px 1px 11px -1px rgba(249,77,180,1);
   .trivia-weeks a .btn{
     height: 30px;
     width: 80px;
+  }
+
+  .btn-coming{
+    width: 120px;
+    height: 30px;
+  }
+  .trivia-weeks .btn-coming p{
+    font-size: 10px;
   }
 
   .arc-point-calculator a img{
